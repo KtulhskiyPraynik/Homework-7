@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StatisticsServiceTest {
+public class StatisticsServiceTest {
 
     @Test
     void findMax() {
@@ -19,66 +19,26 @@ class StatisticsServiceTest {
     }
 
     @Test
-    void findMin() {
+    void findMaxLast() {
         StatisticsService service = new StatisticsService();
 
-        long[] incomesInBillions = {12, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
-        long expected = 3;
+        long[] incomesInBillions = {1, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
+        long expected = 12;
 
-        long actual = service.findMin(incomesInBillions);
+        long actual = service.findMax(incomesInBillions);
 
         assertEquals(expected, actual);
     }
 
     @Test
-
-    public void sumIncomes() {
+    void findMaxMiddle() {
         StatisticsService service = new StatisticsService();
 
-        long[] incomesInBillions = {12, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
-        long expected = 12 + 5 + 8 + 4 + 5 + 3 + 8 + 6 + 11 + 11 + 12;
+        long[] incomesInBillions = {12, 5, 8, 4, 5, 13, 8, 6, 11, 11, 12};
+        long expected = 13;
 
-        long actual = service.sumIncomes(incomesInBillions);
+        long actual = service.findMax(incomesInBillions);
+
         assertEquals(expected, actual);
-
-    }
-
-   @Test
-
-    public void averageIncomes() {
-        StatisticsService service = new StatisticsService();
-
-        long[] incomesInBillions = {12, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
-        long expected = (12 + 5 + 8 + 4 + 5 + 3 + 8 + 6 + 11 + 11 + 12) / 11;
-
-        long actual = service.averageIncomes(incomesInBillions);
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-
-    public void belowAverageIncome() {
-        StatisticsService service = new StatisticsService();
-
-        long[] incomesInBillions = {12, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
-        long expected = 5;
-
-        long actual = service.belowAverageIncome(incomesInBillions);
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-
-    public void aboveAverageIncome() {
-        StatisticsService service = new StatisticsService();
-
-        long[] incomesInBillions = {12, 5, 8, 4, 5, 3, 8, 6, 11, 11, 12};
-        long expected = 6;
-
-        long actual = service.aboveAverageIncome(incomesInBillions);
-        assertEquals(expected, actual);
-
     }
 }
